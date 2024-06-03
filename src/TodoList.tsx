@@ -12,7 +12,7 @@ interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ quests, category, deleteQuest, toggleCompleted }) => {
   return (
     <div>
-      <h2>{category.charAt(0).toUpperCase() + category.slice(1)} Quests</h2> {/* Dodaj tytuł z nazwą kategorii */}
+      <h2>{category.charAt(0).toUpperCase() + category.slice(1)} Quests</h2> 
       <ul>
         {quests.filter(quest => quest.category === category).map(quest => (
           <li key={quest._id}>

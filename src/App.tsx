@@ -1,4 +1,4 @@
-// App.tsx
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from './app/store';
@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from './Header';
 import AddTodoForm from './AddTodoForm.tsx';
 import TodoList from './TodoList.tsx';
-import './App.css';
+import './App.scss';
 import { Quest } from './types.ts';
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
       <AddTodoForm />
       <div className="container">
         <div className="box">
-          <h1>Weekly</h1>
+     
           <TodoList
             quests={quests}
             category="weekly"
@@ -57,7 +57,7 @@ function App() {
           />
         </div>
         <div className="box">
-          <h1>Monthly</h1>
+  
           <TodoList
             quests={quests}
             category="monthly"
@@ -66,7 +66,7 @@ function App() {
           />
         </div>
         <div className="box">
-          <h1>Today</h1>
+        
           <TodoList
             quests={quests}
             category="today"
