@@ -1,13 +1,13 @@
+// App.tsx
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from './app/store';
 import { fetchQuests, addQuest, deleteQuest, toggleCompleted } from './features/questsSlice.ts';
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from './Header.tsx';
+import Header from './Header';
 import AddTodoForm from './AddTodoForm.tsx';
 import TodoList from './TodoList.tsx';
-import './App.scss';
+import './App.css';
 import { Quest } from './types.ts';
 
 function App() {
@@ -43,20 +43,39 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <AddTodoForm />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<h1>Welcome to the Todo App</h1>} />
-            <Route path="/weekly" element={<TodoList quests={quests} category="weekly" deleteQuest={handleDeleteQuest} toggleCompleted={handleToggleCompleted} />} />
-            <Route path="/monthly" element={<TodoList quests={quests} category="monthly" deleteQuest={handleDeleteQuest} toggleCompleted={handleToggleCompleted} />} />
-            <Route path="/today" element={<TodoList quests={quests} category="today" deleteQuest={handleDeleteQuest} toggleCompleted={handleToggleCompleted} />} />
-          </Routes>
+    <div className="App">
+      <Header />
+      <AddTodoForm />
+      <div className="container">
+        <div className="box">
+          <h1>Weekly</h1>
+          <TodoList
+            quests={quests}
+            category="weekly"
+            deleteQuest={handleDeleteQuest}
+            toggleCompleted={handleToggleCompleted}
+          />
+        </div>
+        <div className="box">
+          <h1>Monthly</h1>
+          <TodoList
+            quests={quests}
+            category="monthly"
+            deleteQuest={handleDeleteQuest}
+            toggleCompleted={handleToggleCompleted}
+          />
+        </div>
+        <div className="box">
+          <h1>Today</h1>
+          <TodoList
+            quests={quests}
+            category="today"
+            deleteQuest={handleDeleteQuest}
+            toggleCompleted={handleToggleCompleted}
+          />
         </div>
       </div>
-    </Router>
+    </div>
   );
 }
 
